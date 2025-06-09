@@ -1,0 +1,90 @@
+.navbar {
+    padding-top: 10px;
+}
+
+.btn-outline-turquesa {
+  color: #2e9288; /* texto turquesa */
+  border-color: #2e9288; /* borde turquesa */
+}
+
+.btn-outline-turquesa:hover,
+.btn-outline-turquesa:focus,
+.btn-outline-turquesa:active {
+  background-color: #2e9288; /* fondo turquesa al hover */
+  color: white; /* texto blanco al hover */
+  border-color: #2e9288;
+}
+
+.btn-outline-naranja {
+  color: #de6742; /* texto turquesa */
+  border-color: #de6742; /* borde turquesa */
+}
+
+.btn-outline-naranja:hover,
+.btn-outline-naranja:focus,
+.btn-outline-naranja:active {
+  background-color: #de6742; /* fondo turquesa al hover */
+  color: white; /* texto blanco al hover */
+  border-color: #de6742;
+}
+
+.btn-send {
+  color: white; /* texto turquesa */
+  border: none;
+  transition: background-color 0.3s ease;
+  background-color: #4db6ac; /* borde turquesa */
+}
+
+.btn-send:hover,
+.btn-send:focus,
+.btn-send:active {
+  background-color: #3fa295; /* fondo turquesa al hover */
+  color: white; /* texto blanco al hover */
+}
+
+.follow-data{
+  font-size: 12px;
+}
+
+.page-item .page-link{
+  color: #2e9288;
+}
+
+.page-item.active .page-link{
+  background-color: #2e9288;
+  color: white;
+}
+
+.fade-out {
+    opacity: 0.3;
+    transition: opacity 0.5s ease;
+}
+
+.fade-in {
+    opacity: 0;
+    animation: fadeInAnimation 0.5s forwards;
+}
+
+@keyframes fadeInAnimation {
+    to {
+        opacity: 1;
+    }
+}
+
+.fade-out-general {
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.fade-in-general {
+    opacity: 0;
+    animation: fadeInAnimation-general 0.4s forwards;
+}
+
+@keyframes fadeInAnimation {
+    to {
+        opacity: 1;
+    }
+}
+
+

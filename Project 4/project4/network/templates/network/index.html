@@ -1,0 +1,92 @@
+{% extends "network/layout.html" %}
+{% load static %}
+
+{% block body %}
+
+<div id="page-view" class="text-center my-3"></div>
+
+<!-- Profile here -->
+<div id="profile-view">
+    <div class="card w-75 mb-3 mx-auto">
+            <div class="card-body profile-body">
+                <div class="d-flex align-items-center mb-2">
+                    <h5 class="card-title fs-3 profile-user">User</h5>
+                    <button type="button" class="btn btn-sm btn-outline-turquesa ms-3 btn-follow">Follow</button>
+                    <button type="button" class="btn btn-sm btn-outline-naranja ms-3 btn-unfollow">Unfollow</button>
+                </div>
+                
+                <!-- Follow data -->
+                <div class="d-flex justify-content-around text-center">
+                    <div>
+                        <h6 class="mb-0">Followers</h6>
+                        <small class="text-muted followers-count">1.2k</small>
+                    </div>
+                    <div>
+                        <h6 class="mb-0">Following</h6>
+                        <small class="text-muted following-count">580</small>
+                    </div>
+                </div>
+            </div>
+    </div>
+ </div>
+
+<!-- Compose post here -->
+{% if user.is_authenticated %}
+<div id="compose-post">
+    <div class="card w-75 mb-3 mx-auto">
+        <div class="card-body post-body">
+            <h5 class="card-title">Create post</h5>
+            <form id="compose-form">
+                <textarea class="form-control mb-4" id="compose-body" placeholder="{{ user.username }}, what are you thinking?"></textarea>
+                <button type="submit" class="submit-post btn btn-send">
+                    Send post!
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+<!-- New post here -->
+<div id="new-post"></div>
+
+
+<!-- Posts here -->
+<div id="posts-view"></div>
+    <h3 id="post-section"></h3>
+    <template id="post-template">
+        <div class="card w-75 mb-3 mx-auto" data-id="">
+            <div class="card-body post-body">
+                <div class="d-flex align-items-center">
+                    <h5 class="card-title post-user">User</h5>
+                    <button type="button" class="btn btn-sm btn-outline-secondary ms-3 btn-edit">Edit post</button>
+                </div>
+                
+                <p class="card-text post-content">Post content.</p>
+
+                <div class="d-flex justify-content-between align-items-center">
+                    <small class="text-muted post-date">2025-06-05 18:30</small>
+                    <div>
+                        <button type="button" class="btn btn-sm btn-outline-danger btn-like">
+                           ❤️ <span class="like-count">12</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+
+<!-- Pagination here -->
+<nav aria-label="Page navigation">
+  <ul class="pagination justify-content-center"></ul>
+</nav>
+
+{% endblock %}
+
+{% block script %}
+    <script>
+        const USERNAME = "{{ user.username|escapejs }}";
+    </script>
+
+    <script src="{% static 'network/index.js' %}?v={{ timestamp }}"></script>
+{% endblock %}
