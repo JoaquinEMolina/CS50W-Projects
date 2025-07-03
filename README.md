@@ -65,7 +65,7 @@ A social networking site with Django and JavaScript.
 - Python 3, Django
 - HTML, CSS, Bootstrap
 - JavaScript (vanilla)
-- SQLite / PostgreSQL (depending on project)
+- SQLite3
 - Git & GitHub for version control
 
 ---
