@@ -54,7 +54,7 @@ A single-page email client built with Django and JavaScript.
 A social networking site with Django and JavaScript.
 
 - Create posts and follow/unfollow users
-- Infinite scrolling via API
+- Posts agruped by paginator
 - Edit posts (JavaScript-based)
 - Like system with live updates
 
