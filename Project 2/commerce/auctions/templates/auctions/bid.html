@@ -1,0 +1,22 @@
+{% if listing.active %}
+    {% if message %}
+        <div>{{ message }}</div>
+    {% endif %}
+
+    {% if user.is_authenticated %}
+    <form action="{% url 'make_bid' listing.id %}" method="post" class="mt-3">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="amount" class="form-label">Bid Amount</label>
+            <input type="number" name="amount" id="amount" step="0.01" class="form-control" placeholder="Enter your bid" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Place Bid</button>
+    </form>
+    {% else %}
+        <div class="mt-2"><p>To place a bid: <a href="{% url 'login' %}">Login</a> | <a href="{% url 'register' %}">Register</a></p></div>
+        
+    {% endif %}
+
+{% else %}
+    <p class="text-danger mt-2">The auction has closed.</p>
+{% endif %}

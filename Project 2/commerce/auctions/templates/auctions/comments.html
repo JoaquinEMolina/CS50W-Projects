@@ -1,0 +1,26 @@
+<div>
+    <h3>Comments</h3>
+    {% for comment in listing.listing_comments.all %}
+        <div class="border rounded p-2 mb-2 bg-light">
+            <strong>{{ comment.user }}:</strong> {{ comment.comment }}
+        </div>
+    {% empty %}
+        <p class="text-muted">No comments yet.</p>
+    {% endfor %}
+
+    
+    <h4 class="mt-4">Leave a Comment</h4>
+    {% if user.is_authenticated %}
+        <form action="{% url 'make_comment' listing.id %}" method="post" class="mt-2">
+        {% csrf_token %}
+        <div class="mb-3">
+            <input type="text" name="comment" class="form-control" placeholder="Write your comment..." required>
+        </div>
+        <button type="submit" class="btn btn-secondary">Send Comment</button>
+    </form>
+    {% else %}
+        <div><p>To comment: <a href="{% url 'login' %}">Login</a> or <a href="{% url 'register' %}">Register</a>.</p></div>
+        
+    {% endif %}
+
+</div>
